@@ -11,10 +11,11 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name
     validates :description
-    validates :price, format: { with: /\A[0-9]+\z/i }, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+    validates :price, format: { with: /\A[0-9]+\z/i },
+                      numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
     validates :image
   end
-  
+
   with_options presence: true, numericality: { other_than: 0, message: 'Select' } do
     validates :category_id
     validates :status_id
