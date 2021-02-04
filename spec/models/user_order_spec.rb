@@ -56,11 +56,11 @@ RSpec.describe UserOrder, type: :model do
         @user_order.valid?
         expect(@user_order.errors.full_messages).to include('Tel number is invalid')
       end
-      # it 'tokenが空では登録できないこと' do
-      #   @user_order.token = nil
-      #   @user_order.valid?
-      #   expect(@user_order.errors.full_messages).to include("Token can't be blank")
-      # end
+      it 'tokenが空では登録できないこと' do
+        @user_order.token = nil
+        @user_order.valid?
+        expect(@user_order.errors.full_messages).to include("Token can't be blank")
+      end
       it 'user_idが空では登録できないこと' do
         @user_order.user_id = nil
         @user_order.valid?
